@@ -70,7 +70,7 @@ int main(void) {
     }
   } while (choice != 3);
 
-  printf("THE END");
+  printf("THE END\n");
   return 0;
 }
 
