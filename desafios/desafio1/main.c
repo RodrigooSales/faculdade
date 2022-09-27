@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-int occupy(unsigned char cabinets, int choice) {
+void occupy(unsigned char cabinets, int choice) {
   do {
     choice = (char)pow(2, rand() % 8);
     if (cabinets & choice) {
@@ -12,10 +12,10 @@ int occupy(unsigned char cabinets, int choice) {
       cabinets = cabinets | choice;
     }
   } while (choice == 10);
-  return choice = 1;
+  choice = 1;
 }
 
-int release(unsigned char cabinets, int choice) {
+void release(unsigned char cabinets, int choice) {
   printf("Cabinet number(0/7): ");
   scanf("%d", &choice);
   choice = (char)pow(2, choice);
@@ -25,7 +25,7 @@ int release(unsigned char cabinets, int choice) {
   } else {
     printf("the locker has been successfully released!\n");
   }
-  return choice = 2;
+  choice = 2;
 }
 
 int main(void) {
@@ -73,4 +73,3 @@ int main(void) {
   printf("THE END\n");
   return 0;
 }
-
