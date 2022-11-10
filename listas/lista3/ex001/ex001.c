@@ -5,16 +5,28 @@
 
 #define TAM 15
 int main(void){
-    float vetor[TAM], num, maior, menor;
+    float vetor[TAM], num, maior=0.0, menor=0.0;
 
     //recebe o vetor
     for(int i=0 ; i<TAM ; i++){
-        printf("digite o valor para a posição %d", i);
+        printf("digite o valor para a posição [%d]: ", i);
         scanf("%f", &num);
         vetor[i] = num;
     }
-
-    for(int j ; j<TAM ; j++){
-
+    maior = vetor[0];
+    menor = vetor[0];
+    for(int i=0 ; i<TAM ; i++){
+        if(vetor[i]>maior){
+            maior = vetor[i];
+        }
+        if(vetor[i] < menor){
+            menor = vetor[i];
+        }
     }
+
+    printf("\n\n Maior: %f\n", maior);
+    printf(" Menor: %f", menor);
+    printf("\nA soma dos valores é %f\n", maior + menor);
+
+    return 0;
 }
