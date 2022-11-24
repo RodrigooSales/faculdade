@@ -1,32 +1,29 @@
 // 7. Escreva um programa que concatene duas strings utilizando ponteiros.
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-void concatena(char *string1, int t1, char *string2,int t2 ,char *concatenada){
-    for(int i=0; i<t1; i++){
+void concatena(char *string1, char *string2, char *concatenada){
+    while(*string1){
         *concatenada = *string1;
-        ++concatenada;
-    }    
-
-    for(int j=0; j<t2 ; j++ ){
-        *(concatenada + t1) = *string2;
-        ++concatenada;
-    }
-}
-
-int tamanhoString(char *s){
-    char *ptr = s;
-    while(*s != '\0'){
-        s++;
+        concatenada += 1;
+        string1 +=1;
     }
 
-    return (int)(s-ptr);
+    while(*string2){
+        *concatenada = *string2;
+        concatenada += 1;
+        string2 +=1;
+    }
+
+    *concatenada = '\0';
 }
 
 #define TAM 50
 
 int main(void){
-    char string1[TAM], string2[TAM], concatenada[TAM];
-    int t1, t2;
+    char string1[TAM], string2[TAM];
+    char *concatenada[TAM] = (char*) malloc(((int)strlen(string1) + (int)strlen(string2)+1)*sizeof(char));
 
     printf("Digite a primeira string: ");
     scanf("%s", &string1);
@@ -34,14 +31,9 @@ int main(void){
     printf("Digite a segunda string: ");
     scanf("%s", &string2);
 
-    t1 = tamanhoString(string1);
-    t2 = tamanhoString(string2);
+    concatena(string1, string2, concatenada);
 
-    concatena(string1, t1, string2, t2, concatenada);
-
-    for(int i=0; i<TAM ; i++){
-        printf("%c", concatenada[i]);
-    }
+    printf("%s", concatenada);
 
     return 0;
 }
