@@ -26,6 +26,8 @@ int main(int argc, char **argv){
 
     TAM = atoi(argv[1]);
 
+    srand(time(NULL));
+
     for(int i=0 ; i<TAM ; i++){
         vetor[i] = rand() % 10;
     }
