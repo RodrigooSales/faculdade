@@ -22,6 +22,11 @@ void maiorMenor(int *vetor, int tamanho, int *maior, int *menor){
 
 int main(int argc, char **argv){
     int TAM, vetor[TAM], maior, menor;
+    int *ptrMaior, *ptrMenor;
+    char * ends[2];
+
+    ptrMaior = &maior;
+    ptrMenor = &menor;
 
     TAM = atoi(argv[1]);
 
@@ -38,8 +43,12 @@ int main(int argc, char **argv){
 
     maiorMenor(vetor, TAM, &maior, &menor);
 
-    printf("Maior: %d, seu Endereço: %p\n", maior, &maior);
-    printf("Menor: %d, seu Endereço: %p\n", menor, &menor);
+    ends[0] = (char *) &ptrMaior;
+    ends[1] = (char *) &ptrMenor;
+
+    for(int i=0 ; i<2 ; i++){
+        printf("%s\n", ends[i]);
+    }
 
     return 0;
 }
