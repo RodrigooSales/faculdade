@@ -1,0 +1,2 @@
+// Escreva uma função em C que receba uma string, um caracter c e o ponteiro para um buffer. o buffer deve conter a string recebida a partir
+// da primeira ocorrencia de c. A função tambem deve retornar a quantidade de caracteres validos no buffer.

@@ -1,0 +1,2 @@
+Quais as vantagens da compilação separada em C? Organize os codigos das questões 2 e 3 usando bibliotecas em C e makefile. 
+Voce deve criar pelo menos uma bibliotecas

@@ -1,0 +1,2 @@
+// Escreva um programa que dado um vetor A com dimensão k, armazene em B os elementos pares de A. O valor de K deve ser fornecido por linha de comando.
+// Se A não tiver valor par, uma mensagemd deve aparecer na tela.
