@@ -1,4 +1,6 @@
 // constantes declaradas para o botão input e a area da lista de tasks
+document.addEventListener("DOMContentLoaded", function() {
+
 const taskInput = document.querySelector("#newtask input");
 const taskSection = document.querySelector('.tasks');
 
@@ -15,7 +17,7 @@ document.querySelector('#push').onclick = function () {
 }
 
 function createTask() {
-    if (taskInput.value.lenght == 0) {
+    if (taskInput.value.length == 0) {
         alert("A tarefa esta em branco. Digite a tarefa e tente novamente");
     }
     else {
@@ -49,3 +51,4 @@ function updateTask(task) {
         taskItem.classList.remove("checked");
     }
 }
+});
