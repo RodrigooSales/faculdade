@@ -113,6 +113,7 @@ body {
     right: -5px;
     padding: 5px 5px;
     background: #FFFFFF;
+    background-image: url('lixo.png');
     border-radius: 4px;
     transform-origin: top right;
     box-shadow: 0 0 6px rgb(0, 0, 0, 0.15);
