@@ -1,0 +1,1 @@
+// Somatório: Soma de um conjunto de números.

@@ -1,3 +1,5 @@
+// Ordenação: Ordenar um array usando o método Quicksort
+
 function quickSort(array, inicio, fim) {
     if (inicio < fim) {
         let posicaoPivo = particao(array, inicio, fim);

@@ -1,3 +1,5 @@
+// Número é primo: Um número inteiro positivo n é primo se for divisível apenas por 1 e por n.
+
 const readline = require("readline");
 
 const rl = readline.createInterface({
