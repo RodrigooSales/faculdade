@@ -1,0 +1,101 @@
+/* Estilos gerais */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+h4 {
+  font-size: 1.5em;
+  margin: 0 0 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+a button {
+  background-color: #008cba;
+}
+
+/* Estilos do header */
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
+
+header p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* Estilos dos formulários */
+div {
+  padding: 20px;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: 50%;
+}
+
+input[type="text"] {
+  width: 50%;
+}
+
+/* Estilos dos hr */
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+/* Estilos específicos dos formulários */
+#contagem-div {
+  background-color: #f2f2f2;
+}
+
+#fibonacci-div {
+  background-color: #e6f2ff;
+}
+
+#mdc-div {
+  background-color: #f2e6ff;
+}
+
+#quicksort-div {
+  background-color: #e6ffe6;
+}
+
+#primo-div {
+  background-color: #ffe6e6;
+}
+
+#somatorio-div {
+  background-color: #ffffe6;
+}

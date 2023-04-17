@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entregavel 2</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Algoritmos fundamentais em Javascript e Java</h1>
+      <p>
+        Esse trabalho é o segundo entregavel da disciplina de Ambientes de
+        desenvolvimento de software. Para executar os algoritimos preencha os
+        campos corretamente
+      </p>
+    </header>
+
+    <div id="contagem-div">
+      <h4>Algoritmos de contagem</h4>
+      <label>Digite numeros separados por virgula</label>
+      <input type="text" name="contagem" id="contagem" />
+      <button onclick="contagem()">calcular</button>
+      <a href=""><button>Java</button></a>
+    </div>
+
+    <hr />
+
+    <div id="fibonacci-div">
+      <h4>Algoritmos de fibonacci</h4>
+      <label>Digite quantos numeros da sequencia mostrar</label>
+      <input type="number" name="fibonacci" id="fibonacci" />
+      <button onclick="calcularFibonacci()">calcular</button>
+      <a href=""><button>Java</button></a>
+    </div>
+
+    <hr />
+
+    <div id="mdc-div">
+      <h4>Algoritmos de calculo maximo divisor comum</h4>
+      <label>primeiro numero</label>
+      <input type="number" name="numero1" id="numero1" />
+      <label>segundo numero</label>
+      <input type="number" name="numero2" id="numero2" />
+      <button onclick="calcularMdc()">calcular</button>
+      <a href=""><button>Java</button></a>
+    </div>
+
+    <hr />
+
+    <div id="quicksort-div">
+      <h4>Algoritmos de ordenação quicksort</h4>
+      <label>digite quantos numeros deseja ordenar</label>
+      <input type="number" name="quicksort" id="quicksort" />
+      <button onclick = "ordena()">calcular</button>
+      <a href=""><button>Java</button></a>
+      <p id="quicksort-resultado"></p>
+    </div>
+
+    <hr />
+
+    <div id="primo-div">
+      <h4>Algoritmos encontrando numeros primos</h4>
+      <label>digite um numero para a analise</label>
+      <input type="number" name="primo" id="primo" />
+      <button onclick="verificarPrimo()">calcular</button>
+      <a href=""><button>Java</button></a>
+    </div>
+
+    <hr />
+
+    <div id="somatorio-div">
+      <h4>Algoritmos somatorio</h4>
+      <label>Digite numeros separados por virgula</label>
+      <input type="text" name="soma" id="soma-input" />
+      <button onclick="somatorio()">calcular</button>
+      <a href=""><button>Java</button></a>
+    </div>
+  </body>
+  <script src="javascript/contagem.js"></script>
+  <script src="javascript/fibonacci.js"></script>
+  <script src="javascript/mdc.js"></script>
+  <script src="javascript/ordena.js"></script>
+  <script src="javascript/primo.js"></script>
+  <script src="javascript/somatorio.js"></script>
+</html>
