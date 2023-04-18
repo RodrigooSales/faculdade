@@ -1,18 +1,17 @@
-let valores = [];
+var valores = [];
 
 function contagem() {
-  let inputValores = parseInt(document.getElementById("contagem").value);
-  valores = inputValores.split(",");
-  let contador = 0
-  let contador2 = 0
-  console.log(valores)
-  for(let i=0 ; i<valores.lenght ; i++){
-    if(Number.isInteger(valores[i]) == true){
+  valores = document.getElementById("contagem").value.split(",");
+  var contador = 0
+  var contador2 = 0
+  for(var i = 0 ; i in valores ; i++){
+    console.log(valores[i])
+    if((Math.floor(valores[i]) === 'valores[i]' && Math.ceil(valores[i]) === 'valores[i]') === true){
         contador++
-    } else{
+    } else if((Math.floor(valores[i]) === 'valores[i]' && Math.ceil(valores[i]) === 'valores[i]') === false){
         contador2++
     }
   }
 
-  alert("A quantidade de numeros inteiros é igual a " + contador)
+  alert("A quantidade de numeros inteiros é igual a " + contador2)
 }
