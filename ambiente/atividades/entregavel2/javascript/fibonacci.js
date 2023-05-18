@@ -2,7 +2,7 @@
 // é derivado da soma de seus dois antecessores mais próximos.
 
 function calcularFibonacci() {
-    let a = 0, b = 1;
+    let a = 1, b = 1,n=parseInt(document.getElementById("fibonacci").value) ;
     let sequence = a + " " + b;
     for(let i=2;i<n;i++){
     let c = a + b;
@@ -12,7 +12,3 @@ function calcularFibonacci() {
     }
     alert(sequence);
 }
-    
-fibonacci(document.getElementById("fibonacci").value); 
-
-
