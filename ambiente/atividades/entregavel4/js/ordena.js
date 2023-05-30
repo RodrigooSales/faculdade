@@ -39,5 +39,6 @@ function gerarNumerosAleatorios(quantidade) {
     console.log("Array não ordenado: " + numeros);
 }
 
+numeros = gerarNumerosAleatorios(10);
 quickSort(numeros, 0, numeros.length - 1);
 console.log("Array ordenado: " + numeros);

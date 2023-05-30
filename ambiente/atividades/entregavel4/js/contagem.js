@@ -9,6 +9,6 @@ function contagem(numeros) {
     }
   }
 
-  console.log("Quantidade de valores inteiros: " + count);
+  return count
 }
 module.exports = contagem;

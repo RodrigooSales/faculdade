@@ -7,6 +7,6 @@ function calcularMdc(num1, num2) {
     num2 = resto;
   } while (resto != 0);
   let resultado = num1;
-  console.log(resultado);
+  return resultado;
 }
 module.exports = calcularMdc;
