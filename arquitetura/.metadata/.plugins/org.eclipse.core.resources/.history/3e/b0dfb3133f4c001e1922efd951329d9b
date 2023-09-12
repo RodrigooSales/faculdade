@@ -1,0 +1,12 @@
+package composite.classes;
+
+public class Chefe implements Funcionario{
+	
+	
+	@Override
+	public Double getSalario() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

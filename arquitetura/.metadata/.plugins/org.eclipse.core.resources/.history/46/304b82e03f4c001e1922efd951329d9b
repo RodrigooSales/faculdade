@@ -1,0 +1,12 @@
+package composite.classes;
+
+// Classe composite
+public class Chefe implements ComponenteEmpresa{
+
+	@Override
+	public double calcularSalario() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+}

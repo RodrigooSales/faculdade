@@ -1,0 +1,15 @@
+package composite.classes;
+
+// classe folha (Leaf)
+public class Funcionario implements ComponenteEmpresa{
+	private String nome;
+	private double salario;
+	
+	public Funcionario(String nome, double salario) {
+		super();
+		this.nome = nome;
+		this.salario = salario;
+	}
+	
+	
+}

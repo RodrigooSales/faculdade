@@ -1,0 +1,30 @@
+package composite.classes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+// Classe composite
+public class Chefe implements ComponenteEmpresa{
+	private String nome;
+	private List<ComponenteEmpresa> subordinados = new ArrayList<>();
+	
+	public Chefe(String nome) {
+		super();
+		this.nome = nome;
+	}
+
+	public void adicionarSubordinado(ComponenteEmpresa subordinado) {
+		subordinados.add(subordinado);
+	}
+
+
+	@Override
+	public double calcularSalario() {
+		double salarioAgregado = 0.00;
+		for (ComponenteEmpresa subordinado : subordinados) {
+			salarioAgregado += subordinado.calcularSalario();
+		}
+		return salarioAgregado;
+	}
+	
+}
