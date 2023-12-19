@@ -5,7 +5,7 @@
 ### metodos
 - push -> adciona um no na pilha ✅
 - pop -> remove o primeiro no e retorna-o na pilha ✅
-- peek -> retorna o primeiro no na pilha
+- peek -> retorna o primeiro no na pilha 
 
 ## Queue/Fila(First in First off)
 

@@ -1,3 +1,4 @@
+import Classes.Queue;
 import Classes.Stack;
 
 public class App {
@@ -12,5 +13,15 @@ public class App {
         stack.pop();
         stack.printStack();
         stack.peek();
+
+
+        System.out.println("Exibindo a fila...");
+        Queue queue = new Queue(3);
+        queue.enqueue(12);
+        queue.enqueue(24);
+        queue.enqueue(47);
+        queue.printQueue();
+        queue.dequeue();
+        queue.printQueue();
     }
 }
