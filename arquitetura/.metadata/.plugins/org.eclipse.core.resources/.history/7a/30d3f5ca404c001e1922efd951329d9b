@@ -1,6 +1,0 @@
-package composite.classes;
-
-public interface ComponenteEmpresa {
-	public double calcularSalario();
-
-}

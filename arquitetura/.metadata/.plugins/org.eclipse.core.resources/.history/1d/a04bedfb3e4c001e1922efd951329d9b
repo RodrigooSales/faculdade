@@ -1,5 +1,0 @@
-package composite.classes;
-
-public interface Funcionario {
-	public Double getSalario();
-}

@@ -1,6 +1,0 @@
-package composite.classes;
-
-public abstract Funcionario {
-	public double calcularSalario();
-
-}

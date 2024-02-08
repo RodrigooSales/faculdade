@@ -1,3 +1,0 @@
-INDEX VERSION 1.134+D:\faculdade\unifor\semestre3\arquitetura\.metadata\.plugins\org.eclipse.jdt.core
-1865797976.index
-3376472041.index
