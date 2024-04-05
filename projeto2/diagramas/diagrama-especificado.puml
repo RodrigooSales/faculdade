@@ -1,0 +1,66 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v2.4.0
+!includeurl DEVICONS/common.puml
+!includeurl DEVICONS/devicons2/mysql.puml
+!includeurl DEVICONS/devicons2/spring.puml
+!includeurl DEVICONS/devicons2/flutter.puml
+
+LAYOUT_WITH_LEGEND()
+
+title System Context diagram for Microservices Architecture
+
+
+System_Boundary(c1, "Apresentação") {
+    System(frontend, "Frontend Microservice", "Handles user interface and requests from users.", $sprite="flutter")
+}
+
+System_Ext(gateway, "API Gateway", "Handles routing and load balancing.")
+System_Ext(firebase, "Firebase", "Handles authentication and authorization.")
+ContainerDb(users, "Firebase Users Database", "Stores user data.")
+
+System_Boundary(c2, "Negócio") {
+    System(backend1, "Backend Microservice 1", "Handles specific business logic.", $sprite="spring")
+    System(backend2, "Backend Microservice 2", "Handles specific business logic.", $sprite="spring")
+    System(backend3, "Backend Microservice 3", "Handles specific business logic.", $sprite="spring")
+    System(backend4, "Backend Microservice 4", "Handles specific business logic.", $sprite="spring")
+    System(backend5, "Backend Microservice 5", "Handles specific business logic.", $sprite="spring")
+    System(backend6, "Backend Microservice 6", "Handles specific business logic.", $sprite="spring")
+    System(backend7, "Backend Microservice 7", "Handles specific business logic.", $sprite="spring")
+    System(backend8, "Backend Microservice 8", "Handles specific business logic.", $sprite="spring")
+    System(backend9, "Backend Microservice 9", "Handles specific business logic.", $sprite="spring")
+    System(backend10, "Backend Microservice 10", "Handles specific business logic.", $sprite="spring")
+}
+
+System_Boundary(c3, "Persistência") {
+    ContainerDb(database, "Database", "Stores data for all microservices.", $sprite="mysql")
+}
+
+Rel_D(frontend, gateway,)
+Rel_R(gateway, firebase,)
+Rel_R(firebase, users,)
+
+BiRel_D(gateway, backend1, "Uses", "HTTP")
+BiRel_D(gateway, backend2, "Uses", "HTTP")
+BiRel_D(gateway, backend3, "Uses", "HTTP")
+BiRel_D(gateway, backend4, "Uses", "HTTP")
+BiRel_D(gateway, backend5, "Uses", "HTTP")
+BiRel_D(gateway, backend6, "Uses", "HTTP")
+BiRel_D(gateway, backend7, "Uses", "HTTP")
+BiRel_D(gateway, backend8, "Uses", "HTTP")
+BiRel_D(gateway, backend9, "Uses", "HTTP")
+BiRel_D(gateway, backend10, "Uses", "HTTP")
+
+Rel(backend1, database, "Reads from and writes to")
+Rel(backend2, database, "Reads from and writes to")
+Rel(backend3, database, "Reads from and writes to")
+Rel(backend4, database, "Reads from and writes to")
+Rel(backend5, database, "Reads from and writes to")
+Rel(backend6, database, "Reads from and writes to")
+Rel(backend7, database, "Reads from and writes to")
+Rel(backend8, database, "Reads from and writes to")
+Rel(backend9, database, "Reads from and writes to")
+Rel(backend10, database, "Reads from and writes to")
+@enduml

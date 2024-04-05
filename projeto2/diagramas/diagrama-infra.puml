@@ -1,0 +1,31 @@
+@startuml
+' left to right direction
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v2.4.0
+!includeurl DEVICONS/common.puml
+!includeurl DEVICONS/devicons2/mysql.puml
+!includeurl DEVICONS/devicons2/spring.puml
+!includeurl DEVICONS/devicons2/java.puml
+!includeurl DEVICONS/devicons2/flutter.puml
+!includeurl DEVICONS/devicons2/dart.puml
+
+LAYOUT_WITH_LEGEND()
+
+title System Context diagram for Data Architecture
+
+
+Boundary(c4Respository, "Front-End", $tags="frontend") {
+    Component(frontend, "Dart", $techn="Pubspec", $tags="v1", $descr="Flutter\nVersion: 3.0.0\nPort: 3000", $sprite="dart")
+    Component(http, "http.dart", $techn="HTTP", $tags="v1", $descr="Lib for http requests in Dart")
+}
+
+Component(backend, "Java Microservices", $techn="Maven", $descr="SpringBoot\nVersion: 3.2.4\nPort: 808X\n", $sprite="java")
+ContainerDb(database, "MySql Database", $descr="URL: http://localhost\nPort: 3306\n", $sprite="mysql")
+
+Rel_R(frontend, http,)
+Rel_R(http, backend,)
+Rel(backend, database,)
+@enduml

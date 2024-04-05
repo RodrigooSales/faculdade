@@ -1,0 +1,39 @@
+@startuml
+' left to right direction
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v2.4.0
+!includeurl DEVICONS/common.puml
+!includeurl DEVICONS/devicons2/mysql.puml
+!includeurl DEVICONS/devicons2/spring.puml
+!includeurl DEVICONS/devicons2/flutter.puml
+
+LAYOUT_WITH_LEGEND()
+
+title System Context diagram for Data Architecture
+
+
+System(criacao, "Criação Serviço", $sprite="spring")
+System(individuos, "Individuos Serviço", $sprite="spring")
+System(recintos, "Recintos Serviço", $sprite="spring")
+System(especies, "Especies Serviço", $sprite="spring")
+System(obitos, "Fichas óbitos Serviço", $sprite="spring")
+' System(pedigree, "Pedigree Serviço", $sprite="spring")
+System(financeiro, "Financeiro Serviço", $sprite="spring")
+System(reproducao, "Reprodução Serviço", $sprite="spring")
+
+ContainerDb(database, "Database", "Stores data for all microservices.", $sprite="mysql")
+
+
+Rel(criacao, database, "Ficha_Criacao", "SELECT, INSERT, UPDATE, DELETE")
+Rel(individuos, database, "Ficha_Individuos", "SELECT, INSERT, UPDATE, DELETE")
+Rel(recintos, database, "Ficha_Recintos", "SELECT, INSERT, UPDATE, DELETE")
+Rel(especies, database, "Ficha_Especies", "SELECT, INSERT, UPDATE, DELETE")
+Rel(obitos, database, "Ficha_Obitos", "SELECT, INSERT, UPDATE, DELETE")
+' Rel(pedigree, database, "Ficha_Criação", "SELECT, INSERT, UPDATE, DELETE")
+Rel(financeiro, database, "Ficha_Financeiro", "SELECT, INSERT, UPDATE, DELETE")
+Rel(reproducao, database, "Ficha_Reproducao", "SELECT, INSERT, UPDATE, DELETE")
+@enduml
