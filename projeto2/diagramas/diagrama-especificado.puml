@@ -7,6 +7,7 @@
 !includeurl DEVICONS/devicons2/mysql.puml
 !includeurl DEVICONS/devicons2/spring.puml
 !includeurl DEVICONS/devicons2/flutter.puml
+!includeurl DEVICONS/devicons2/firebase.puml
 
 LAYOUT_WITH_LEGEND()
 
@@ -17,8 +18,8 @@ System_Boundary(c1, "Apresentação") {
     System(frontend, "Frontend Microservice", "Handles user interface and requests from users.", $sprite="flutter")
 }
 
-System_Ext(gateway, "API Gateway", "Handles routing and load balancing.")
-System_Ext(firebase, "Firebase", "Handles authentication and authorization.")
+System_Ext(gateway, "Kong API Gateway", "Handles routing and load balancing.")
+System_Ext(firebase, "Firebase", "Handles authentication and authorization.", $sprite="firebase")
 ContainerDb(users, "Firebase Users Database", "Stores user data.")
 
 System_Boundary(c2, "Negócio") {
@@ -37,7 +38,7 @@ System_Boundary(c3, "Persistência") {
 }
 
 Rel_D(frontend, gateway, "HTTP Dart Lib")
-Rel_R(gateway, firebase,)
+Rel_R(frontend, firebase,)
 Rel_R(firebase, users,)
 
 BiRel_D(gateway, backend1, "Uses", "HTTP")

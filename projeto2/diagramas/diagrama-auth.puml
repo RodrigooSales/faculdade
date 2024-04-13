@@ -1,0 +1,28 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v2.4.0
+!includeurl DEVICONS/common.puml
+!includeurl DEVICONS/devicons2/mysql.puml
+!includeurl DEVICONS/devicons2/spring.puml
+!includeurl DEVICONS/devicons2/flutter.puml
+!includeurl DEVICONS/devicons2/firebase.puml
+
+
+LAYOUT_WITH_LEGEND()
+
+title System Context diagram for Authentication Flux Architecture
+
+Container(client, "Client", "Flutter", "Sends user credentials and receives authentication token.")
+
+Container(auth, "Firebase Authentication", "Firebase", "Authenticates user credentials and generates token.")
+
+Container(userdb, "Firebase User Database", "Firebase", "Stores user data.")
+
+
+Rel_R(client, auth, "Sends user credentials",)
+Rel_R(auth, userdb, "Verifies user credentials", "storage user data")
+Rel_L(userdb, auth, "Validated User",)
+Rel_L(auth, client, "Returns authentication token", "JWT")
+@enduml

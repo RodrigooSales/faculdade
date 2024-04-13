@@ -11,21 +11,29 @@
 !includeurl DEVICONS/devicons2/java.puml
 !includeurl DEVICONS/devicons2/flutter.puml
 !includeurl DEVICONS/devicons2/dart.puml
+!includeurl DEVICONS/devicons2/docker.puml
+!includeurl DEVICONS/devicons2/firebase.puml
+
+AddElementTag("v1.1", $fontColor="#000000")
 
 LAYOUT_WITH_LEGEND()
 
-title System Context diagram for Data Architecture
+title System Context diagram for Infraestruct Architecture
+
+Component(frontend, "Flutter Microsservice", $techn="Dart", $tags="v1", $descr="Server: Nginx\nPort: 3000", $sprite="docker")
 
 
-Boundary(c4Respository, "Front-End", $tags="frontend") {
-    Component(frontend, "Dart", $techn="Pubspec", $tags="v1", $descr="Flutter\nVersion: 3.0.0\nPort: 3000", $sprite="dart")
-    Component(http, "http.dart", $techn="HTTP", $tags="v1", $descr="Lib for http requests in Dart")
-}
+Component(gateway, "API Gateway", $techn="Kong", $descr="Server:Alpine\nPort: 3001\n", $sprite="docker")
 
-Component(backend, "Java Microservices", $techn="Maven", $descr="SpringBoot\nVersion: 3.2.4\nPort: 808X\n", $sprite="java")
-ContainerDb(database, "MySql Database", $descr="URL: http://localhost\nPort: 3306\n", $sprite="mysql")
+Container_Ext(firebase, "Firebase", $descr="URL: https://firebase.google.com\n", $sprite="firebase")
 
-Rel_R(frontend, http,)
-Rel_R(http, backend,)
+Component(backend, "Java Microservices", $techn="Maven", $descr="Server:Tomcat\nPort: 808X\n", $sprite="docker")
+ContainerDb(database, "MySql Database", $descr="URL: http://localhost\nPort: 3306\n", $sprite="docker", $tags="v1.1") 
+
+AddContainerTag("webApp", $sprite="application_server", $legendText="web app container")
+
+Rel_R(frontend, gateway,)
+Rel_U(frontend, firebase,)
+Rel_R(gateway, backend,)
 Rel(backend, database,)
 @enduml
