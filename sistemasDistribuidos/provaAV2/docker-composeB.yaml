@@ -18,6 +18,7 @@ services:
     container_name: reviews-v1
     networks:
       - backend
+      - ratings
     depends_on:
       - ratings
 
@@ -26,6 +27,7 @@ services:
     container_name: reviews-v2
     networks:
       - backend
+      - ratings
     depends_on:
       - ratings
 
@@ -34,6 +36,7 @@ services:
     container_name: reviews-v3
     networks:
       - backend
+      - ratings
     depends_on:
       - ratings
 
@@ -41,7 +44,7 @@ services:
     image: node:14-alpine  # Assume Ratings is a Node.js service
     container_name: ratings
     networks:
-      - backend
+      - ratings
 
   details:
     image: ruby:2.7-slim  # Assume Details is a Ruby service
@@ -49,12 +52,12 @@ services:
     networks:
       - frontend
 
-
+  
   locust:
     image: locustio/locust
     container_name: locust
     networks:
-      - loadtest
+      - frontend
     command: >
       -f /path/to/locustfile.py --host=http://productpage:80
     environment:
@@ -66,4 +69,6 @@ networks:
   frontend:
     driver: bridge
   backend:
+    driver: bridge
+  ratings:
     driver: bridge
