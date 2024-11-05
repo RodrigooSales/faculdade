@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  productpage:
+    image: python:3.8-slim  # Assume Product page is a Python service
+    container_name: productpage
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - reviews-v1
+      - reviews-v2
+      - reviews-v3
+      - details
+
+  reviews-v1:
+    image: openjdk:11-jre-slim  # Assume Reviews-v1 is a Java service
+    container_name: reviews-v1
+    networks:
+      - backend
+    depends_on:
+      - ratings
+
+  reviews-v2:
+    image: openjdk:11-jre-slim  # Assume Reviews-v2 is a Java service
+    container_name: reviews-v2
+    networks:
+      - backend
+    depends_on:
+      - ratings
+
+  reviews-v3:
+    image: openjdk:11-jre-slim  # Assume Reviews-v3 is a Java service
+    container_name: reviews-v3
+    networks:
+      - backend
+    depends_on:
+      - ratings
+
+  ratings:
+    image: node:14-alpine  # Assume Ratings is a Node.js service
+    container_name: ratings
+    networks:
+      - backend
+
+  details:
+    image: ruby:2.7-slim  # Assume Details is a Ruby service
+    container_name: details
+    networks:
+      - frontend
+
+
+  locust:
+    image: locustio/locust
+    container_name: locust
+    networks:
+      - loadtest
+    command: >
+      -f /path/to/locustfile.py --host=http://productpage:80
+    environment:
+      - LOCUST_TARGET_HOST=http://productpage:80
+    depends_on:
+      - productpage
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
